@@ -30,6 +30,9 @@
     <ClInclude Include="include\BIOEngineConfiguration.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\BIOEngineClass.cpp">

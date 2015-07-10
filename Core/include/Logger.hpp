@@ -1,5 +1,5 @@
 /**
-* @file logger.hpp
+* @file Logger.hpp
 * @author Spencer Hoffa
 *
 * Holds all of the Logging definitions.

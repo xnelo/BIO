@@ -1,0 +1,3 @@
+[submodule "Xnelo-Testing"]
+	path = Xnelo-Testing
+	url = https://github.com/xnelo/Xnelo-Testing.git

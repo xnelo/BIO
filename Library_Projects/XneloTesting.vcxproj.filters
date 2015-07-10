@@ -15,27 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Config.h">
+    <ClInclude Include="..\Xnelo-Testing\include\IReportGenerator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Logger.hpp">
+    <ClInclude Include="..\Xnelo-Testing\include\OutStreamGenerator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\BasicTypes.hpp">
+    <ClInclude Include="..\Xnelo-Testing\include\Test.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Testing.hpp">
+    <ClInclude Include="..\Xnelo-Testing\include\Test_Result.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Core.hpp">
+    <ClInclude Include="..\Xnelo-Testing\include\Testing.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Xnelo-Testing\include\TestingConfiguration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Xnelo-Testing\include\TestSuite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\Logger.cpp">
+    <ClCompile Include="..\Xnelo-Testing\source\OutStreamGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Testing.cpp">
+    <ClCompile Include="..\Xnelo-Testing\source\Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Xnelo-Testing\source\Test_Result.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Xnelo-Testing\source\TestSuite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
