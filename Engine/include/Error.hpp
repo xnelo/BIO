@@ -27,4 +27,32 @@
 
 #ifndef ___BIO_ENGINE_ERROR_HPP__2015___
 #define ___BIO_ENGINE_ERROR_HPP__2015___
+
+#include "../../Core/include/BasicTypes.hpp"
+
+namespace BIO
+{
+	namespace ENGINE
+	{
+		typedef CORE::uint8 ErrorType;
+
+		const ErrorType ERROR_NONE = 0;
+		const ErrorType OK = ERROR_NONE;
+		const ErrorType ERROR_CREATING_RENDERING_DEVICE = 1;
+
+		char * GetErrorString(ErrorType error);
+	}//end namespace ENGINE
+}//end namespace BIO
+
+inline char * BIO::ENGINE::GetErrorString(ErrorType error)
+{
+	switch (error)
+	{
+	case ERROR_CREATING_RENDERING_DEVICE:
+		return "Error Creating Rendering Device.";
+	default:
+		return "Unrecognized Error.";
+	}
+}
+
 #endif //___BIO_ENGINE_ERROR_HPP__2015___

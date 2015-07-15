@@ -31,7 +31,6 @@
 #include "EngineTypes.hpp"
 
 #include <iostream>
-#include "../../Core//include/Logger.hpp"
 
 namespace BIO
 {
@@ -75,6 +74,7 @@ namespace BIO
 
 			//Set all the variable to default values --------------------------
 			_device = NULL;
+			_error = OK;
 			//-----------------------------------------------------------------
 
 			//initialize the device
@@ -84,6 +84,13 @@ namespace BIO
 										config->fullscreen, 
 										config->enableStencilBuffer, 
 										config->enableVeticalSync);
+
+			if (_device == NULL)
+			{
+				BIO_LOG_CRITICAL("Error Creating Irrlicht Engine... Returning.");
+				_error = ERROR_CREATING_RENDERING_DEVICE;
+				return;
+			}
 		}
 	}//end namespace ENGINE
 }//end namespace BIO

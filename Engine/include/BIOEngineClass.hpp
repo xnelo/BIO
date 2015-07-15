@@ -32,6 +32,12 @@
 #include "../Irrlicht/include/irrlicht.h"
 
 #include "BIOEngineConfiguration.hpp"
+#include "Error.hpp"
+#include "../../Core/include/Logger.hpp"
+
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+#include "../../Xnelo-Testing/include/Testing.hpp"
+#endif
 
 namespace BIO
 {
@@ -42,6 +48,12 @@ namespace BIO
 		private:
 			/**The Irrlicht device that runs the graphics.*/
 			irr::IrrlichtDevice * _device;
+
+			/**
+			* The error value of this class. 0, OK, or ERROR_NONE means no error occured and 
+			* engine is ok to continue running.
+			*/
+			ErrorType _error;
 
 			/**
 			* Initialize the Engine.
@@ -72,6 +84,34 @@ namespace BIO
 			* Destructor
 			*/
 			BIO_ENGINE_API ~BIOEngine();
+
+			/**
+			* Get the error code of the engine.
+			*
+			* @return Returns an integer with the Error value of the engine.
+			*/
+			BIO_ENGINE_API ErrorType GetError();
+
+			/**
+			* Check if the window is active.
+			*
+			* @return Returns a boolean with true if the engine's window is the active window. If
+			*			it isn't then false is returned.
+			*/
+			BIO_ENGINE_API bool IsWindowActive();
+
+			/**
+			* Is the engine still ready to continue running?
+			*
+			* @return Returns a boolean with true if the engine is ready, or false if the engine is
+			*			closed/in an error state/ or incapable of continuing.
+			*/
+			BIO_ENGINE_API bool Run();
+
+			/**
+			* Yields the engine to the OS.
+			*/
+			BIO_ENGINE_API void Yield();
 		};
 	}//end namespace ENGINE
 }//end namespace BIO
@@ -92,6 +132,27 @@ inline BIO::ENGINE::BIOEngine::BIOEngine(BIOEngineConfiguration * config)
 inline BIO::ENGINE::BIOEngine::BIOEngine(BIOEngineConfiguration & config)
 {
 	_InitEngine(&config);
+}
+
+inline BIO::ENGINE::ErrorType BIO::ENGINE::BIOEngine::GetError()
+{
+	return _error;
+}
+
+inline bool BIO::ENGINE::BIOEngine::IsWindowActive()
+{
+	return _device->isWindowActive();
+}
+
+inline bool BIO::ENGINE::BIOEngine::Run()
+{
+	return _device->run();
+}
+
+inline void BIO::ENGINE::BIOEngine::Yield()
+{
+	BIO_LOG_DEBUG4("Yielding Engine.");
+	_device->yield();
 }
 
 #endif//___BIO_ENGINE_BIOENGINECLASS_HPP__2015___
