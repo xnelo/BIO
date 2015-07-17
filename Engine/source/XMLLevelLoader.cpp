@@ -1,8 +1,8 @@
 /**
-* @file Core.hpp
+* @file XMLLevelLoader.cpp
 * @author Spencer Hoffa
 *
-* Holds all includes for the BIO Core Library.
+* Implementation of XMLLevelLoader.
 */
 /*
 * Copyright (c)
@@ -25,12 +25,37 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifndef ___BIO_CORE_CORE_HPP__2015___
-#define ___BIO_CORE_CORE_HPP__2015___
+#include "XMLLevelLoader.hpp"
 
-#include "BasicTypes.hpp"
-#include "StringUtils.hpp"
-#include "Logger.hpp"
-#include "Testing.hpp"
+namespace BIO
+{
+	namespace ENGINE
+	{
+		void XMLLevelLoader::Clear()
+		{
+			_isParsed = false;
+			_error = OK;
+		}
 
-#endif //___BIO_CORE_CORE_HPP__2015___
+		void XMLLevelLoader::ParseLevel()
+		{
+			BIO_LOG_INFO("Parse Level");
+
+			_isParsed = true;
+		}
+
+		World * XMLLevelLoader::LoadLevel()
+		{
+			BIO_LOG_INFO("Loading Level");
+			if (_isParsed == false)
+			{
+				BIO_LOG_DEBUG("Level not parsed... parse level");
+				ParseLevel();
+			}
+
+			//now load the level
+			return NULL;
+		}
+	}//end namespace ENGINE
+}//end namespace BIO
+

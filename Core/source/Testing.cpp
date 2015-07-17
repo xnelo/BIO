@@ -32,6 +32,7 @@
 #else
 #include "../../Xnelo-Testing/include/Testing.hpp"
 #include "BasicTypes.hpp"
+#include "StringUtils.hpp"
 #endif
 
 bool BIO::CORE::TestCore()
@@ -48,6 +49,7 @@ bool BIO::CORE::TestCore()
 
 	//add the test functions
 	testSuite.AddTestFunction(TestBasicTypes);
+	testSuite.AddTestFunction(STRING::TestStringUtils);
 
 	//run tests and print out results
 	testSuite.ExecuteTests();

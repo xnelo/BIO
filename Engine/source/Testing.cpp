@@ -1,8 +1,8 @@
 /**
-* @file Core.hpp
+* @file Testing.cpp
 * @author Spencer Hoffa
 *
-* Holds all includes for the BIO Core Library.
+* Implements and runs all the Tests for the BIO Engine library.
 */
 /*
 * Copyright (c)
@@ -25,12 +25,36 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifndef ___BIO_CORE_CORE_HPP__2015___
-#define ___BIO_CORE_CORE_HPP__2015___
-
-#include "BasicTypes.hpp"
-#include "StringUtils.hpp"
-#include "Logger.hpp"
 #include "Testing.hpp"
 
-#endif //___BIO_CORE_CORE_HPP__2015___
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+
+//include all of the objects to test
+#include "BIOEngineClass.hpp"
+
+bool BIO::ENGINE::TestEngine()
+{
+	XNELO::TESTING::TestSuite testSuite("BIO ENGINE Tests");
+	XNELO::TESTING::OutStreamGenerator output;
+
+	testSuite.SetReportGenerator(&output);
+
+	//add the test functions
+	testSuite.AddTestFunction(BIOEngine::Test);
+
+	//run tests and print out results
+	testSuite.ExecuteTests();
+
+	//save the return value
+	bool retValue = testSuite.GetSuccess();
+
+	return retValue;
+}
+#else
+#include <iostream>
+bool BIO::ENGINE::TestEngine()
+{
+	std::cout << "TESTING DISABLED" << std::endl;
+	return true;
+}
+#endif

@@ -68,6 +68,11 @@ namespace BIO
 			}
 		}
 
+		bool BIOEngine::LoadLevel(const char * filename)
+		{
+			return false;
+		}
+
 		void BIOEngine::_InitEngine(BIOEngineConfiguration * config)
 		{
 			BIO_LOG_INFO("BIOEngine Initializing");
@@ -92,5 +97,14 @@ namespace BIO
 				return;
 			}
 		}
+
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+		bool BIOEngine::Test(XNELO::TESTING::Test * test)
+		{
+			test->SetName("BIOEngine Class Tests");
+
+			return test->GetSuccess();
+		}
+#endif
 	}//end namespace ENGINE
 }//end namespace BIO

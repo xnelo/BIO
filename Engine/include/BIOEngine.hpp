@@ -31,7 +31,10 @@
 #include "../Irrlicht/include/irrlicht.h"
 
 #include "EngineTypes.hpp"
+#include "Error.hpp"
 
 #include "BIOEngineClass.hpp"
+
+#include "Testing.hpp"
 
 #endif //___BIO_ENGINE_BIOENGINE_HPP__2015___

@@ -89,6 +89,7 @@
     <ClInclude Include="include\Config.h" />
     <ClInclude Include="include\Core.hpp" />
     <ClInclude Include="include\Logger.hpp" />
+    <ClInclude Include="include\StringUtils.hpp" />
     <ClInclude Include="include\Testing.hpp" />
   </ItemGroup>
   <ItemGroup>

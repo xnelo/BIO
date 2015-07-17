@@ -1,8 +1,8 @@
 /**
-* @file Core.hpp
+* @file World.hpp
 * @author Spencer Hoffa
 *
-* Holds all includes for the BIO Core Library.
+* Defines a world class in the BIO Engine.
 */
 /*
 * Copyright (c)
@@ -25,12 +25,27 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifndef ___BIO_CORE_CORE_HPP__2015___
-#define ___BIO_CORE_CORE_HPP__2015___
+#ifndef ___BIO_ENGINE_WORLD_HPP__2015___
+#define ___BIO_ENGINE_WORLD_HPP__2015___
 
-#include "BasicTypes.hpp"
-#include "StringUtils.hpp"
-#include "Logger.hpp"
-#include "Testing.hpp"
+#include "Config.h"
 
-#endif //___BIO_CORE_CORE_HPP__2015___
+namespace BIO
+{
+	namespace ENGINE
+	{
+		/**
+		* A World. This holds all the information for the world.
+		*/
+		class World
+		{
+		public:
+			World(){}
+			~World(){}
+		};
+	}//end namespace ENGINE
+}//end namespace BIO
+
+#endif //___BIO_ENGINE_WORLD_HPP__2015___
+
+

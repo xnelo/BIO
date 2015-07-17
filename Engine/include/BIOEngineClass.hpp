@@ -101,6 +101,16 @@ namespace BIO
 			BIO_ENGINE_API bool IsWindowActive();
 
 			/**
+			* Load a level from the passed in file.
+			*
+			* @param filename The name of the file to load.
+			*
+			* @return Returns true if the file was loaded successfully.
+			*/
+			BIO_ENGINE_API bool LoadLevel(std::string filename);
+			BIO_ENGINE_API bool LoadLevel(const char * filename);
+
+			/**
 			* Is the engine still ready to continue running?
 			*
 			* @return Returns a boolean with true if the engine is ready, or false if the engine is
@@ -112,6 +122,17 @@ namespace BIO
 			* Yields the engine to the OS.
 			*/
 			BIO_ENGINE_API void Yield();
+
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+			/**
+			* Tests for the BIOEngine class.
+			*
+			* @param test A pointer to a Test object.
+			*
+			* @return Returns true if all the tests succeded. False otherwise.
+			*/
+			BIO_ENGINE_API static bool Test(XNELO::TESTING::Test * test);
+#endif
 		};
 	}//end namespace ENGINE
 }//end namespace BIO
@@ -142,6 +163,11 @@ inline BIO::ENGINE::ErrorType BIO::ENGINE::BIOEngine::GetError()
 inline bool BIO::ENGINE::BIOEngine::IsWindowActive()
 {
 	return _device->isWindowActive();
+}
+
+inline bool BIO::ENGINE::BIOEngine::LoadLevel(std::string filename)
+{
+	return LoadLevel(filename.c_str());
 }
 
 inline bool BIO::ENGINE::BIOEngine::Run()

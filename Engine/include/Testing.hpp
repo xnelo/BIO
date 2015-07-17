@@ -1,8 +1,8 @@
 /**
-* @file Core.hpp
+* @file Testing.hpp
 * @author Spencer Hoffa
 *
-* Holds all includes for the BIO Core Library.
+* Holds the testing stuff for the BIO Engine library.
 */
 /*
 * Copyright (c)
@@ -24,13 +24,24 @@
 *
 * 3. This notice may not be removed or altered from any source distribution.
 */
+#ifndef ___BIO_ENGINE_TESTING_HPP__2015___
+#define ___BIO_ENGINE_TESTING_HPP__2015___
 
-#ifndef ___BIO_CORE_CORE_HPP__2015___
-#define ___BIO_CORE_CORE_HPP__2015___
+#include "Config.h"
 
-#include "BasicTypes.hpp"
-#include "StringUtils.hpp"
-#include "Logger.hpp"
-#include "Testing.hpp"
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+#include "../../Xnelo-Testing/include/Testing.hpp"
+#endif
 
-#endif //___BIO_CORE_CORE_HPP__2015___
+namespace BIO
+{
+	namespace ENGINE
+	{
+		/**
+		* Run all the tests for the BIO Engine library.
+		*/
+		BIO_ENGINE_API bool TestEngine();
+	}//end namesapce Engine
+}//end namespace BIO
+
+#endif //___BIO_ENGINE_TESTING_HPP__2015___
