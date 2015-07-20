@@ -31,6 +31,7 @@
 
 //include all of the objects to test
 #include "BIOEngineClass.hpp"
+#include "XMLLevelLoader.hpp"
 
 bool BIO::ENGINE::TestEngine()
 {
@@ -41,6 +42,7 @@ bool BIO::ENGINE::TestEngine()
 
 	//add the test functions
 	testSuite.AddTestFunction(BIOEngine::Test);
+	testSuite.AddTestFunction(XMLLevelLoader::Test);
 
 	//run tests and print out results
 	testSuite.ExecuteTests();

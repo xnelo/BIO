@@ -49,6 +49,20 @@ namespace BIO
 			/**Open GL. Available on most platforms. Open source specification.*/
 			RD_OPEN_GL
 		};
+
+		/**
+		* Defines the types of cameras that are available in the engine.
+		*/
+		enum CAMERA_TYPE
+		{
+			/**Defines the default camera type.*/
+			CAMERA_DEFAULT = 0,
+			/**A camera that follows an object in the world.*/
+			CAMERA_FOLLOW
+		};
+
+		typedef irr::core::vector3df Vector3;
+		typedef irr::core::vector2df Vector2;
 	}//end namespace Engine
 }//end namespace BIO
 

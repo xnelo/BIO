@@ -29,6 +29,8 @@
 
 #include "BIOEngineClass.hpp"
 #include "EngineTypes.hpp"
+#include "../../Core/include/FileUtils.hpp"
+#include "XMLLevelLoader.hpp"
 
 #include <iostream>
 
@@ -70,7 +72,33 @@ namespace BIO
 
 		bool BIOEngine::LoadLevel(const char * filename)
 		{
-			return false;
+			if (!FILE::FileExists(filename))
+			{
+				BIO_LOG_WARNING("File does not exist: filename='%s'", filename);
+				_error = ERROR_LOADLEVEL__FILE_DOES_NOT_EXISTS;
+				return false;
+			}
+
+			XMLLevelLoader loader;
+
+			loader.SetFilename(filename);
+			World * returnWorld = loader.LoadLevel();
+
+			//FOR RIGHT NOW !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			if (returnWorld)
+				delete returnWorld;
+
+			if (loader.GetError() != OK)
+			{
+				BIO_LOG_ERROR("Error Loading Level. Error code '%i' returned from level loader.", loader.GetError());
+
+				_error = loader.GetError();
+
+				return false;
+			}
+
+			_error = OK;
+			return true;
 		}
 
 		void BIOEngine::_InitEngine(BIOEngineConfiguration * config)

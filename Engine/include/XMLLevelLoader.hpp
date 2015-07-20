@@ -31,6 +31,10 @@
 #include "Config.h"
 #include "ILevelLoader.hpp"
 
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+#include "../../Xnelo-Testing/include/Testing.hpp"
+#endif
+
 namespace BIO
 {
 	namespace ENGINE
@@ -92,6 +96,10 @@ namespace BIO
 			*		responsibility as an implementor of this interface.
 			*/
 			BIO_ENGINE_API virtual void ParseLevel();
+
+#if BIOENGINE_TESTING_IS_ENABLED == BIOENGINE_TESTING_ON
+			BIO_ENGINE_API static bool Test(XNELO::TESTING::Test * test);
+#endif
 		};
 	}//end namespace ENGINE
 }//end namespace BIO

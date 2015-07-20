@@ -33,6 +33,7 @@
 #include "../../Xnelo-Testing/include/Testing.hpp"
 #include "BasicTypes.hpp"
 #include "StringUtils.hpp"
+#include "FileUtils.hpp"
 #endif
 
 bool BIO::CORE::TestCore()
@@ -50,6 +51,7 @@ bool BIO::CORE::TestCore()
 	//add the test functions
 	testSuite.AddTestFunction(TestBasicTypes);
 	testSuite.AddTestFunction(STRING::TestStringUtils);
+	testSuite.AddTestFunction(FILE::FileUtilsTests);
 
 	//run tests and print out results
 	testSuite.ExecuteTests();

@@ -39,6 +39,8 @@ namespace BIO
 		const ErrorType ERROR_NONE = 0;
 		const ErrorType OK = ERROR_NONE;
 		const ErrorType ERROR_CREATING_RENDERING_DEVICE = 1;
+		const ErrorType ERROR_LOADLEVEL__FILE_DOES_NOT_EXISTS = 2;
+		const ErrorType ERROR_NOT_IMPLEMENTED = 3;
 
 		char * GetErrorString(ErrorType error);
 	}//end namespace ENGINE

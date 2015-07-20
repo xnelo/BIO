@@ -30,6 +30,7 @@
 
 #include "BasicTypes.hpp"
 #include "StringUtils.hpp"
+#include "FileUtils.hpp"
 #include "Logger.hpp"
 #include "Testing.hpp"
 
